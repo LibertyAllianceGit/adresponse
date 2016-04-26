@@ -3,7 +3,7 @@
 Plugin Name: AdResponse - Anti-Ad Blocker
 Plugin URI: http://wpdevelopers.com
 Description: Notifications for users employing ad blocker.
-Version: 1.2
+Version: 1.2.1
 Author: Tyler Johnson and Ted Slater
 Author URI: http://wpdevelopers.com
 Copyright: WP Developers
@@ -510,7 +510,7 @@ function adresponse_detection_antiadblock_head() {
                 } ?>
             
                 // Write Top Bar Container DIV
-                document.write('<div id="' + c4vl39.sitebanner + '" style="display: none; background-color:#980A0A; color: #fff; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; top: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $headmess; ?></p></div>\n');
+                document.write('<div id="' + c4vl39.sitebanner + '" style="display: none; background-color:#<?php echo $messagebg; ?>; color: #<?php echo $messagecolor; ?>; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; top: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $headmess; ?></p></div>\n');
             <?php } ?>
             
         </script>
@@ -598,7 +598,7 @@ function adresponse_detection_antiadblock_footer() {
                 $footermessage = 'Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.';
             } ?>
             
-            jQuery('body').append('<div id="' + c4vl39.sitefooter + '" style="display: none; background-color:#980A0A; color: #fff; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; bottom: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $footermessage; ?></p></div>');
+            jQuery('body').append('<div id="' + c4vl39.sitefooter + '" style="display: none; background-color:#<?php echo $messagebg; ?>; color: #<?php echo $messagecolor; ?>; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; bottom: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $footermessage; ?></p></div>');
             
         <?php } ?>
 
