@@ -15,13 +15,13 @@ Check for Plugin Updates & Update
 --------------------*/
 
 require 'plugin-update-checker-3.0/plugin-update-checker.php';
-$wpdevtoolsClassName = PucFactory::getLatestClassVersion('PucGitHubChecker');
-$myUpdateChecker->setAccessToken('4921ce230f2bd252dd1fafc7afeac812ddf091de');
-$wpdevtoolsUpdateChecker = new $wpdevtoolsClassName(
+$wpdevClassName = PucFactory::getLatestClassVersion('PucGitHubChecker');
+$wpdevUpdateChecker = new $wpdevClassName(
     'https://github.com/LibertyAllianceGit/adresponse',
     __FILE__,
     'master'
 );
+$wpdevUpdateChecker->setAccessToken('4921ce230f2bd252dd1fafc7afeac812ddf091de');
 
 /*--------------------
 Enqueue Plugin CSS & JS
