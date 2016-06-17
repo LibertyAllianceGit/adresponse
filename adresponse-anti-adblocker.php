@@ -3,7 +3,7 @@
 Plugin Name: AdResponse - Anti-Ad Blocker
 Plugin URI: http://wpdevelopers.com
 Description: Notifications for users employing ad blocker.
-Version: 1.2.1
+Version: 1.2.2
 Author: Tyler Johnson and Ted Slater
 Author URI: http://wpdevelopers.com
 Copyright: WP Developers
@@ -16,6 +16,7 @@ Check for Plugin Updates & Update
 
 require 'plugin-update-checker-3.0/plugin-update-checker.php';
 $wpdevtoolsClassName = PucFactory::getLatestClassVersion('PucGitHubChecker');
+$myUpdateChecker->setAccessToken('4921ce230f2bd252dd1fafc7afeac812ddf091de');
 $wpdevtoolsUpdateChecker = new $wpdevtoolsClassName(
     'https://github.com/LibertyAllianceGit/adresponse',
     __FILE__,
@@ -282,7 +283,7 @@ class AdResponseAntiAdBlocker {
 	}
 
 	public function adresponse_anti_ad_blocker_section_info() {
-		
+
 	}
 	public function enable_ad_detection_0_callback() {
 		printf(
@@ -331,14 +332,14 @@ class AdResponseAntiAdBlocker {
 			isset( $this->adresponse_anti_ad_blocker_options['header_bar_message_6'] ) ? esc_attr( $this->adresponse_anti_ad_blocker_options['header_bar_message_6']) : ''
 		);
 	}
-    
+
     public function enable_sidebar_message_5_callback() {
 		printf(
 			'<input type="checkbox" name="adresponse_anti_ad_blocker_option_name[enable_sidebar_message_5]" id="enable_sidebar_message_5" class="ios" value="enable_sidebar_message_5" %s>',
 			( isset( $this->adresponse_anti_ad_blocker_options['enable_sidebar_message_5'] ) && $this->adresponse_anti_ad_blocker_options['enable_sidebar_message_5'] === 'enable_sidebar_message_5' ) ? 'checked' : ''
 		);
 	}
-    
+
     public function sidebar_container_class_or_id_7_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="adresponse_anti_ad_blocker_option_name[sidebar_container_class_or_id_7]" id="sidebar_container_class_or_id_7" value="%s">',
@@ -352,14 +353,14 @@ class AdResponseAntiAdBlocker {
 			isset( $this->adresponse_anti_ad_blocker_options['sidebar_message_6'] ) ? esc_attr( $this->adresponse_anti_ad_blocker_options['sidebar_message_6']) : ''
 		);
 	}
-    
+
 	public function enable_above_below_post_message_7_callback() {
 		printf(
 			'<input type="checkbox" name="adresponse_anti_ad_blocker_option_name[enable_above_below_post_message_7]" class="ios" id="enable_above_below_post_message_7" value="enable_above_below_post_message_7" %s>',
 			( isset( $this->adresponse_anti_ad_blocker_options['enable_above_below_post_message_7'] ) && $this->adresponse_anti_ad_blocker_options['enable_above_below_post_message_7'] === 'enable_above_below_post_message_7' ) ? 'checked' : ''
 		);
 	}
-    
+
 	public function post_content_container_class_or_id_8_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="adresponse_anti_ad_blocker_option_name[post_content_container_class_or_id_8]" id="post_content_container_class_or_id_8" value="%s">',
@@ -380,14 +381,14 @@ class AdResponseAntiAdBlocker {
 			( isset( $this->adresponse_anti_ad_blocker_options['enable_comment_message_10'] ) && $this->adresponse_anti_ad_blocker_options['enable_comment_message_10'] === 'enable_comment_message_10' ) ? 'checked' : ''
 		);
 	}
-    
+
     public function comment_message_cont_10_callback() {
 		printf(
 			'<input class="regular-text" type="text" name="adresponse_anti_ad_blocker_option_name[comment_message_cont_10]" id="comment_message_cont_10" value="%s">',
 			isset( $this->adresponse_anti_ad_blocker_options['comment_message_cont_10'] ) ? esc_attr( $this->adresponse_anti_ad_blocker_options['comment_message_cont_10']) : ''
 		);
 	}
-    
+
 	public function comment_message_11_callback() {
 		printf(
 			'<textarea class="large-text" rows="5" name="adresponse_anti_ad_blocker_option_name[comment_message_11]" id="comment_message_11">%s</textarea>',
@@ -451,7 +452,7 @@ function adresponse_detection_antiadblock_head() {
     global $siteoverlaymess;
     global $enableheader;
     global $headermess;
-    
+
     // Turn Background Hex into RGBA
     $hex = str_replace("#", "", $messagebg);
 
@@ -466,7 +467,7 @@ function adresponse_detection_antiadblock_head() {
     }
     $rgb = array($r, $g, $b);
     $bgcolor = 'rgba(' . $rgb[0] . ',' . $rgb[1] . ',' . $rgb[2] . ',0.95)';
-    
+
     // Enable Ad Detection
     if(!empty($enablead)) { ?>
 
@@ -495,7 +496,7 @@ function adresponse_detection_antiadblock_head() {
                 } else {
                     $overlaymessage = 'Please disable your <strong>Ad Blocker</strong> in order to interact with the site. The ads on this site support us and our families.';
                 } ?>
-            
+
                 // Create Overlay
                 document.write('<div id="' + c4vl39.siteover + '" style="display: none; background: <?php echo $bgcolor; ?>;width: 100%;height: 100%;position: fixed;z-index: 99999;text-align: center;"><div id="' + c4vl39.siteoverin + '" style="color: #<?php echo $messagecolor; ?>;padding: 0 20%;top: 40%;position: relative;font-size: 1.6rem;"><?php echo $overlaymessage; ?></div></div>\n');
             <?php } ?>
@@ -508,18 +509,18 @@ function adresponse_detection_antiadblock_head() {
                 } else {
                     $headmess = 'Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.';
                 } ?>
-            
+
                 // Write Top Bar Container DIV
                 document.write('<div id="' + c4vl39.sitebanner + '" style="display: none; background-color:#<?php echo $messagebg; ?>; color: #<?php echo $messagecolor; ?>; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; top: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $headmess; ?></p></div>\n');
             <?php } ?>
-            
+
         </script>
 
         <?php }
 }
 add_action('wp_head', 'adresponse_detection_antiadblock_head', 100);
 
-function adresponse_detection_antiadblock_footer() { 
+function adresponse_detection_antiadblock_footer() {
     // Grab Options
     global $enablead;
     global $messagebg;
@@ -539,13 +540,13 @@ function adresponse_detection_antiadblock_footer() {
     global $commentmess;
     global $enablecommenthide;
     global $enablefooter;
-    global $footermess; 
-    
+    global $footermess;
+
     // Enable Ad Detection
     if(!empty($enablead)) { ?>
 
         <script type="text/javascript">
-            
+
         // Enable Sidebar Message
         <?php if(!empty($enablesidebar) && !empty($sidebarmesscont)) {
             if(!empty($sidebarmess)) {
@@ -553,25 +554,25 @@ function adresponse_detection_antiadblock_footer() {
             } else {
                 $sidebarmessage = '<h1><strong>Please disable Ad Blocker</strong></h1><p>Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.</p>';
             } ?>
-            
+
             jQuery('<?php echo $sidebarmesscont; ?>').prepend('<div id="' + c4vl39.siteside + '" style="display: none;background:#<?php echo $messagebg; ?>;padding: 1rem;margin: 0 0 1rem 0;color: #<?php echo $messagecolor; ?>;text-align: center;width: 100%;"><?php echo $sidebarmessage; ?></div>');
-            
+
         <?php } ?>
 
         // Enable Above & Below Post Message
-        <?php if(!empty($enablepostmess) && !empty($postmesscont)) { 
+        <?php if(!empty($enablepostmess) && !empty($postmesscont)) {
             if(!empty($postmess)) {
                 $postmessage = str_replace("'", "\'", $postmess);
             } else {
                 $postmessage = '<h1><strong>Please disable Ad Blocker</strong></h1><p>Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.</p>';
             } ?>
-            
+
             jQuery('<?php echo $postmesscont; ?>').prepend('<div id="' + c4vl39.sitepostt + '" style="display: none;background:#<?php echo $messagebg; ?>;padding: 1rem;margin: 0 0 1rem 0;color: #<?php echo $messagecolor; ?>;text-align: center;width: 100%;"><?php echo $postmessage; ?></div>');
             jQuery('<?php echo $postmesscont; ?>').append('<div id="' + c4vl39.sitepostb + '" style="display: none;background:#<?php echo $messagebg; ?>;padding: 1rem;margin: 0 0 1rem 0;color: #<?php echo $messagecolor; ?>;text-align: center;width: 100%;"><?php echo $postmessage; ?></div>');
         <?php } ?>
-            
+
         // Enable Comment Message
-        <?php if(!empty($enablecommentmess) && !empty($commentmesscont)) { 
+        <?php if(!empty($enablecommentmess) && !empty($commentmesscont)) {
             if(!empty($commentmess)) {
                 $commentmessage = str_replace("'", "\'", $commentmess);
             } elseif (!empty($enablecommenthide)) {
@@ -579,27 +580,27 @@ function adresponse_detection_antiadblock_footer() {
             } else {
                 $commentmessage = 'Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.';
             }
-            
+
             if(!empty($enablecommenthide)) {
                 $commentfunction = '.html';
             } else {
                 $commentfunction = '.prepend';
             } ?>
-            
+
             jQuery('<?php echo $commentmesscont; ?>')<?php echo $commentfunction; ?>('<div id="' + c4vl39.sitecomment + '" style="display: none;background:#<?php echo $messagebg; ?>;padding: 1rem;margin: 0 0 1rem 0;color: #<?php echo $messagecolor; ?>;text-align: center;width: 100%;"><?php echo $commentmessage; ?></div>');
-        
+
         <?php } ?>
-            
+
         // Enable Footer Bar
-        <?php if(!empty($enablefooter)) { 
+        <?php if(!empty($enablefooter)) {
             if(!empty($footermess)) {
                 $footermessage = str_replace("'", "\'", $footermess);
             } else {
                 $footermessage = 'Enjoying the site? Please disable your <strong>Ad Blocker</strong>. The ads on this site support us and our families.';
             } ?>
-            
+
             jQuery('body').append('<div id="' + c4vl39.sitefooter + '" style="display: none; background-color:#<?php echo $messagebg; ?>; color: #<?php echo $messagecolor; ?>; padding: 5px 0 0; text-align: center; font-size: 18px; position: fixed; bottom: 0px; width: 100%; z-index: 99999999;-webkit-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);-moz-box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);box-shadow: 0px 0px 1px 0px #fff,0px 0px 15px 0px rgba(0, 0, 0, 0.6);"><p style="display: inline-block; margin: 0;"><?php echo $footermessage; ?></p></div>');
-            
+
         <?php } ?>
 
         // Set Interval to Check if Fake Ad DIV Exists
@@ -632,7 +633,7 @@ function adresponse_detection_antiadblock_footer() {
         }, 1000);
 
         </script>
-    
+
 <?php }
 }
 add_action('wp_footer', 'adresponse_detection_antiadblock_footer', 100);

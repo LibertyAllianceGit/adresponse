@@ -26,6 +26,9 @@ Displays custom messages to users using ad blocker.
 
 == Changelog ==
 
+= 1.2.2
+* Add GitHub access token.
+
 = 1.2.1
 * Color setting update.
 
