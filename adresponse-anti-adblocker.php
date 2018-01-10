@@ -3,7 +3,7 @@
 Plugin Name: AdResponse - Anti-Ad Blocker
 Plugin URI: http://wpdevelopers.com
 Description: Notifications for users employing ad blocker.
-Version: 1.2.2
+Version: 1.2.4
 Author: Tyler Johnson and Ted Slater
 Author URI: http://wpdevelopers.com
 Copyright: WP Developers
@@ -15,11 +15,10 @@ Check for Plugin Updates & Update
 --------------------*/
 
 require 'plugin-update-checker-3.0/plugin-update-checker.php';
-$wpdevClassName = PucFactory::getLatestClassVersion('PucGitHubChecker');
-$wpdevUpdateChecker = new $wpdevClassName(
-    'https://github.com/LibertyAllianceGit/adresponse',
-    __FILE__,
-    'master'
+$wpdevUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/LibertyAllianceGit/adresponse',
+	__FILE__,
+	'adresponse'
 );
 $wpdevUpdateChecker->setAccessToken('4921ce230f2bd252dd1fafc7afeac812ddf091de');
 

@@ -26,6 +26,12 @@ Displays custom messages to users using ad blocker.
 
 == Changelog ==
 
+= 1.2.4
+* Bug fix.
+
+= 1.2.3
+* PHP7 compatibility fix.
+
 = 1.2.2
 * Add GitHub access token.
 
