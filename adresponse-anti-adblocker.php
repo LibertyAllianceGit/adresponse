@@ -20,7 +20,6 @@ $wpdevUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
 	__FILE__,
 	'adresponse'
 );
-$wpdevUpdateChecker->setAccessToken('4921ce230f2bd252dd1fafc7afeac812ddf091de');
 
 /*--------------------
 Enqueue Plugin CSS & JS
